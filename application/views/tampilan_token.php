@@ -11,8 +11,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
         integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
 
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
 
     <title>CBT PENGAWAS SMK TUNAS HARAPAN</title>
     <link rel="icon" href="https://smkth-jakbar.com/assets/images/logo.png">
@@ -20,153 +20,130 @@
     <style>
     :root {
         --primary-color: #2c3e50;
-        --secondary-color: #3498db;
         --success-color: #27ae60;
         --danger-color: #e74c3c;
     }
 
     body {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+        background-attachment: fixed;
         min-height: 100vh;
-        padding-top: 2rem;
-        padding-bottom: 2rem;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        padding: 20px 0;
     }
 
     .header-section {
         text-align: center;
-        margin-bottom: 3rem;
-        animation: slideDown 0.6s ease-out;
+        margin-bottom: 40px;
     }
 
-    .header-section img {
-        max-width: 120px;
+    .logo-container {
+        background: white;
+        border-radius: 15px;
+        padding: 15px;
+        display: inline-block;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+    }
+
+    .logo-container img {
+        max-width: 100px;
         height: auto;
-        filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.15));
-        margin-bottom: 1rem;
     }
 
-    .header-section h1 {
+    .title-section h1 {
         color: white;
         font-weight: 700;
-        font-size: 2.5rem;
+        font-size: 1.8rem;
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        margin: 0;
+    }
+
+    .title-section p {
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 0.95rem;
+        margin-top: 5px;
     }
 
     .token-card {
-        background: white;
+        height: 100%;
         border: none;
         border-radius: 15px;
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-        overflow: hidden;
         transition: all 0.3s ease;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
+        overflow: hidden;
     }
 
     .token-card:hover {
-        transform: translateY(-10px);
+        transform: translateY(-5px);
         box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
     }
 
-    .card-header {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    .token-card.card-keluar .card-header {
+        background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+        padding: 20px;
         border: none;
-        padding: 1.5rem;
     }
 
-    .card-header h4 {
+    .token-card.card-masuk .card-header {
+        background: linear-gradient(135deg, #27ae60 0%, #229954 100%);
+        padding: 20px;
+        border: none;
+    }
+
+    .token-card .card-header h4 {
         color: white;
+        font-size: 1.1rem;
         font-weight: 700;
-        font-size: 1.25rem;
-        margin: 0;
         letter-spacing: 1px;
+        margin: 0;
     }
 
-    .card-body {
-        padding: 2rem 1.5rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-grow: 1;
-        background: #f8f9fa;
+    .token-card .card-body {
+        padding: 30px 20px;
+        background: white;
     }
 
     .token-value {
+        color: var(--primary-color);
         font-size: 2rem;
         font-weight: 700;
-        color: var(--primary-color);
-        font-family: 'Courier New', monospace;
         letter-spacing: 2px;
         word-break: break-all;
+        font-family: 'Courier New', monospace;
         text-align: center;
+        padding: 15px;
+        background: #f8f9fa;
+        border-radius: 10px;
+        border-left: 4px solid;
     }
 
-    .token-label {
-        text-muted;
-        font-size: 0.875rem;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
+    .token-card.card-keluar .token-value {
+        border-left-color: #e74c3c;
     }
 
-    .token-badge {
-        display: inline-block;
-        padding: 0.5rem 1rem;
-        border-radius: 20px;
-        font-size: 0.75rem;
-        font-weight: 600;
-        margin-top: 0.5rem;
+    .token-card.card-masuk .token-value {
+        border-left-color: #27ae60;
     }
 
-    .token-keluar-badge {
-        background-color: #ffe5e5;
-        color: #c23b22;
-    }
-
-    .token-masuk-badge {
-        background-color: #e5f5e5;
-        color: #1e6b1e;
-    }
-
-    .refresh-info {
+    .refresh-indicator {
         text-align: center;
-        color: white;
-        font-size: 0.875rem;
-        margin-top: 2rem;
-        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-    }
-
-    .refresh-info i {
-        margin-right: 0.5rem;
-        animation: spin 2s linear infinite;
-    }
-
-    @keyframes slideDown {
-        from {
-            opacity: 0;
-            transform: translateY(-30px);
-        }
-
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-
-    @keyframes spin {
-        from {
-            transform: rotate(0deg);
-        }
-
-        to {
-            transform: rotate(360deg);
-        }
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 0.85rem;
+        margin-top: 30px;
     }
 
     @media (max-width: 768px) {
-        .header-section h1 {
-            font-size: 1.75rem;
+        .title-section h1 {
+            font-size: 1.4rem;
+        }
+
+        .logo-container img {
+            max-width: 80px;
+        }
+
+        .token-card .card-body {
+            padding: 20px 15px;
         }
 
         .token-value {
@@ -174,75 +151,94 @@
         }
 
         .token-card {
-            margin-bottom: 1.5rem;
+            margin-bottom: 15px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        body {
+            padding: 10px 0;
+        }
+
+        .title-section h1 {
+            font-size: 1.2rem;
+        }
+
+        .title-section p {
+            font-size: 0.85rem;
+        }
+
+        .logo-container {
+            padding: 10px;
+        }
+
+        .logo-container img {
+            max-width: 70px;
+        }
+
+        .token-card .card-header h4 {
+            font-size: 0.95rem;
+        }
+
+        .token-value {
+            font-size: 1.2rem;
+        }
+
+        .token-card .card-body {
+            padding: 15px 10px;
         }
     }
     </style>
 </head>
 
 <body>
-    <div class="container">
+    <div class="container-fluid">
         <!-- Header Section -->
         <div class="header-section">
-            <img class="img-fluid" src="https://smkth-jakbar.com/assets/images/logo.png" alt="Logo SMK Tunas Harapan">
-            <h1>Token Sistem</h1>
-            <p style="color: rgba(255, 255, 255, 0.9); font-size: 1rem;">CBT PENGAWAS SMK TUNAS HARAPAN</p>
+            <div class="logo-container">
+                <img src="https://smkth-jakbar.com/assets/images/logo.png" alt="Logo SMK Tunas Harapan"
+                    class="img-fluid">
+            </div>
+            <div class="title-section">
+                <h1>CBT PENGAWAS</h1>
+                <p>SMK TUNAS HARAPAN</p>
+            </div>
         </div>
 
-        <!-- Token Cards Row -->
-        <div class="row g-4">
-            <!-- Token Keluar Card -->
-            <div class="col-md-6">
-                <div class="token-card">
+        <!-- Token Cards Section -->
+        <div class="row justify-content-center">
+            <div class="col-md-5 col-lg-4">
+                <div class="card token-card card-keluar">
                     <div class="card-header">
-                        <h4><i class="bi bi-box-arrow-out"></i> Token Keluar</h4>
+                        <h4><i class="fa fa-sign-out"></i> Token Keluar</h4>
                     </div>
                     <div class="card-body">
-                        <div>
-                            <div class="token-value">
-                                <?= $token_keluar['token'] ?>
-                            </div>
-                            <div style="text-align: center; margin-top: 1rem;">
-                                <span class="token-badge token-keluar-badge">
-                                    <i class="bi bi-exclamation-circle"></i> Keluar
-                                </span>
-                            </div>
+                        <div class="token-value">
+                            <?= $token_keluar['token'] ?>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <!-- Token Masuk Card -->
-            <div class="col-md-6">
-                <div class="token-card">
+            <div class="col-md-5 col-lg-4">
+                <div class="card token-card card-masuk">
                     <div class="card-header">
-                        <h4><i class="bi bi-box-arrow-in"></i> Token Masuk</h4>
+                        <h4><i class="fa fa-sign-in"></i> Token Masuk</h4>
                     </div>
                     <div class="card-body">
-                        <div>
-                            <div class="token-value">
-                                <?= $token_masuk['token'] ?>
-                            </div>
-                            <div style="text-align: center; margin-top: 1rem;">
-                                <span class="token-badge token-masuk-badge">
-                                    <i class="bi bi-check-circle"></i> Masuk
-                                </span>
-                            </div>
+                        <div class="token-value">
+                            <?= $token_masuk['token'] ?>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Refresh Info -->
-        <!-- <div class="refresh-info">
-            <i class="bi bi-arrow-repeat"></i>
-            <span>Halaman otomatis refresh setiap 5 detik</span>
-        </div> -->
+        <!-- Refresh Indicator -->
+
     </div>
 
 
-    <!-- Bootstrap Scripts -->
+    <!-- Bootstrap & jQuery Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
     </script>
@@ -251,6 +247,32 @@
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"
         integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous">
+    </script>
+
+    <script>
+    // Smooth animations on page load
+    document.addEventListener('DOMContentLoaded', function() {
+        const cards = document.querySelectorAll('.token-card');
+        cards.forEach((card, index) => {
+            card.style.animation = `fadeInUp 0.6s ease-out ${index * 0.2}s both`;
+        });
+    });
+
+    // Add animation keyframes
+    const style = document.createElement('style');
+    style.textContent = `
+            @keyframes fadeInUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(20px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+        `;
+    document.head.appendChild(style);
     </script>
 
 </body>
