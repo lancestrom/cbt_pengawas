@@ -208,18 +208,6 @@
         <!-- Token Cards Section -->
         <div class="row justify-content-center">
             <div class="col-md-5 col-lg-4">
-                <div class="card token-card card-keluar">
-                    <div class="card-header">
-                        <h4><i class="fa fa-sign-out"></i> Token Keluar</h4>
-                    </div>
-                    <div class="card-body">
-                        <div class="token-value">
-                            <?= $token_keluar['token'] ?>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-5 col-lg-4">
                 <div class="card token-card card-masuk">
                     <div class="card-header">
                         <h4><i class="fa fa-sign-in"></i> Token Masuk</h4>
@@ -231,6 +219,19 @@
                     </div>
                 </div>
             </div>
+            <div class="col-md-5 col-lg-4">
+                <div class="card token-card card-keluar">
+                    <div class="card-header">
+                        <h4><i class="fa fa-sign-out"></i> Token Keluar</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="token-value">
+                            <?= $token_keluar['token'] ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
         <!-- Refresh Indicator -->
